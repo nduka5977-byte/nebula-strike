@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>NEBULA STRIKE</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="gameCanvas" width="1280" height="720"></canvas>
+
+      <div id="screenRoot">
+        <div id="menuScreen" class="screen active">
+          <div class="glass panel menu-panel">
+            <div class="logo">NEBULA STRIKE</div>
+            <div class="menu-stack">
+              <button class="menu-btn primary" data-action="start">Play Game</button>
+              <button id="continueBtn" class="menu-btn" data-action="continue">Continue Game</button>
+              <button class="menu-btn" data-action="hangar">Spaceship Hangar</button>
+              <button class="menu-btn" data-action="missions">Missions</button>
+              <button class="menu-btn" data-action="upgrades">Upgrades</button>
+              <button class="menu-btn" data-action="settings">Settings</button>
+              <button class="menu-btn" data-action="help">How to Play</button>
+              <button class="menu-btn" data-action="credits">Credits</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="panelScreen" class="screen hidden">
+          <div class="glass panel wide-panel">
+            <div class="section-head">
+              <button class="back-btn" data-action="back">← Back</button>
+              <h2 id="panelTitle">Panel</h2>
+            </div>
+            <div id="panelContent"></div>
+          </div>
+        </div>
+
+        <div id="overlayScreen" class="screen hidden">
+          <div class="glass panel overlay-panel">
+            <h2 id="overlayTitle">Paused</h2>
+            <p id="overlayText">Your run is paused.</p>
+            <div class="menu-stack compact">
+              <button class="menu-btn primary" data-action="resume">Resume</button>
+              <button class="menu-btn" data-action="restart">Restart</button>
+              <button class="menu-btn" data-action="menu">Main Menu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="hud" class="hud hidden">
+        <div class="hud-row top-row">
+          <div class="hud-box"><span class="label">Score</span><strong id="scoreValue">0</strong></div>
+          <div class="hud-box"><span class="label">Wave</span><strong id="waveValue">1</strong></div>
+          <div class="hud-box"><span class="label">Lives</span><strong id="livesValue">3</strong></div>
+          <div class="hud-box"><span class="label">Credits</span><strong id="creditsValue">0</strong></div>
+        </div>
+
+        <div class="hud-row bottom-row">
+          <div class="hud-bar">
+            <span>Hull</span>
+            <div class="bar-shell"><div id="healthBar" class="bar-fill health-fill"></div></div>
+            <strong id="healthValue">100</strong>
+          </div>
+          <div class="hud-bar">
+            <span>Shield</span>
+            <div class="bar-shell"><div id="shieldBar" class="bar-fill shield-fill"></div></div>
+            <strong id="shieldValue">60</strong>
+          </div>
+          <div class="hud-box compact-box"><span class="label">Weapon</span><strong id="weaponValue">Pulse</strong></div>
+          <div class="hud-box compact-box"><span class="label">Boost</span><strong id="boostValue">None</strong></div>
+        </div>
+      </div>
+
+      <div id="touchControls">
+        <div id="movePad"><div id="stick"></div></div>
+        <button id="fireButton" class="touch-button">FIRE</button>
+        <button id="pauseButton" class="touch-button small">⏸</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
